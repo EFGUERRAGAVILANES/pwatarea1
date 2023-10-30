@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 09 Guerra</title>
+
+  <style>
+
+    body {
+      background-color: rgb(93, 176, 204);
+    }
+
+    h1 {
+      color: rgb(255, 255, 255);
+      font-size: 24px;
+    }
+
+    .barra-navegacion {
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+      height: 50px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .enlace-navegacion {
+      text-decoration: none;
+      padding: 10px;
+      color: rgb(93, 176, 204);
+      font-size: 16px;
+    }
+
+    .enlace-navegacion:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    .enlace-red-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .icono-red-social {
+      width: 15px;
+      height: 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Biografía</h1>
+  <p>Mi nombre es Erick Guerra y soy un estudiante. Tengo 25 años y vivo en Guayaquil, Ecuador.
+    <br>Me encanta jugar videojuegos. Es una forma de relajarme y divertirme. Me gusta jugar una variedad de juegos,
+    <br>desde juegos de acción hasta juegos de rol. Mis videojuegos favoritos son los juegos de rol de acción,
+    <br>como "The Legend of Zelda" y "The Witcher". Me encantan estos juegos porque tienen una historia rica y personajes interesantes.
+    <br>También me gusta pasar el rato con mis amigos. Nos gusta hacer muchas cosas juntos, como jugar videojuegos,
+    <br>ver películas y salir a comer. Me gusta pasar tiempo con mis amigos porque siempre me hacen reír.
+    <br>Son personas muy divertidas y agradables. Por último, me gusta ver series. Es una forma de relajarme y escapar de la realidad.
+    <br>Me gusta ver una variedad de series, desde series de comedia hasta series dramáticas.
+    <br>Mis series favoritas son las series de comedia, como "The Office" y "Friends".
+    <br>Me encantan estas series porque son muy divertidas y me hacen reír.
+    </p>
+
+  <div class="barra-navegacion">
+
+    <a href="https://www.facebook.com/" class="enlace-red-social">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" class="icono-red-social" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" class="enlace-red-social">
+      <img src="https://graffica.ams3.digitaloceanspaces.com/2023/07/rQYXqS5v-F1ySdm9WYAIbjHo-1024x1024.jpeg" class="icono-red-social" alt="Twitter">
+    </a>
+    <a href="https://instagram.com/" class="enlace-red-social">
+      <img src="https://img.freepik.com/vector-premium/icono-instagram-logotipo-insignia-moderna_578229-124.jpg" class="icono-red-social" alt="Instagram">
+    </a>
+  </div>
+  <style>
+    
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s;
+    }
+
+    .popup img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .popup.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="gallery">
+    <img src="https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/7QRXZCXVHBB37FQIJ5OYDVAYUI.jpg" alt="Hobby 1" onclick="openPopup('https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/7QRXZCXVHBB37FQIJ5OYDVAYUI.jpg')">
+    <figcaption>Mi pasatiempo favorito ver series y peliculas</figcaption>
+
+    <img src="https://img.freepik.com/fotos-premium/grupo-personas-diversas-multietnicas-que-divierten-compartiendo-historias-si-comiendo-cenas-al-aire-libre-familia-amigos-reunidos-fuera-su-casa-verano-calido-ia-generativa_493343-35014.jpg?w=2000" alt="Hobby 2" onclick="openPopup('https://img.freepik.com/fotos-premium/grupo-personas-diversas-multietnicas-que-divierten-compartiendo-historias-si-comiendo-cenas-al-aire-libre-familia-amigos-reunidos-fuera-su-casa-verano-calido-ia-generativa_493343-35014.jpg?w=2000')">
+    <figcaption>Mi pasatiempo favorito es pasar tiempo con amigos</figcaption>
+
+    <img src="https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/noticias/videojuegos_reducen_materia_gris.jpg" alt="Hobby 3" onclick="openPopup('https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/noticias/videojuegos_reducen_materia_gris.jpg')">
+    <figcaption>Mi pasatiempo favorito es jugar videojuegos en mis tiempos libres</figcaption>
+
+  </div>
+
+ 
+  <div class="popup" onclick="closePopup()">
+    <img id="popupImage" src="" alt="Popup Image">
+  </div>
+
+  <script>
+    
+    function openPopup(imageUrl) {
+      var popup = document.querySelector('.popup');
+      var popupImage = document.getElementById('popupImage');
+      popupImage.src = imageUrl;
+      popup.classList.add('show');
+    }
+
+    function closePopup() {
+      var popup = document.querySelector('.popup');
+      popup.classList.remove('show');
+    }
+  </script>
+</body>
+</html>
